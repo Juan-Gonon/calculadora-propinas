@@ -4,7 +4,7 @@ import { useOrder } from "./hook/useOrder"
 
 function App() {
   const {addItem} = useOrder()
-  console.log(menuItems)
+  // console.log(menuItems)
   return (
     <>
     <header className=" bg-teal-400 py-5 ">
