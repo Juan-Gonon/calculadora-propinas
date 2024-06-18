@@ -20,10 +20,15 @@ export function useOrder() {
 
     }
 
+    const removeItem = (id: MenuItem['id']) =>{
+       setOrder((prevState) => (prevState?.filter((item) => item.id !== id)) )
+    }
+
     console.log(order)
 
   return {
     order,
-    addItem
+    addItem,
+    removeItem
   }
 }

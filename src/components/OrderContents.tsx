@@ -1,10 +1,11 @@
-import { OrderItem } from "../types"
+import { MenuItem, OrderItem } from "../types"
 import { formatCurrency } from "../helpers/intex"
 type OrderContentsProps = {
-    order: OrderItem[]
+    order: OrderItem[];
+    removeItem(id: MenuItem['id']): void
 }
 
-export function OrderContents({order} : OrderContentsProps) {
+export function OrderContents({order, removeItem} : OrderContentsProps) {
   return (
     <div>
         <h2 className=" font-black text-4xl ">Consumo</h2>
@@ -21,7 +22,7 @@ export function OrderContents({order} : OrderContentsProps) {
                                 Cantidad: {item.quantity} - {formatCurrency(item.price * item.quantity)}
                             </p>
                          </div>
-                            <button className="bg-red-600 h-8 w-8 rounded-full text-white font-black " >X</button>
+                            <button onClick={() => removeItem(item.id)} className="bg-red-600 h-8 w-8 rounded-full text-white font-black " >X</button>
                         </div>
                     ))
                 )
