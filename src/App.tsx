@@ -27,7 +27,7 @@ function App() {
       <div className=" border border-dashed border-slate-300 p-5 rounded-lg space-y-10 ">
         <OrderContents order={order} removeItem={removeItem} />
         <TiPorcentageForm setTip={setTip} />
-        <OrderTotals order={order} />
+        <OrderTotals order={order} tip={tip} />
       </div>
    
     </main>
