@@ -7,7 +7,6 @@ export function useOrder() {
 
     const addItem = (item:MenuItem) => {
         const itemExist = order.find((orderItem) => orderItem.id === item.id)
-        console.log(itemExist)
 
         if(!itemExist){
             const newItem:OrderItem = {...item, quantity:1}
@@ -26,11 +25,17 @@ export function useOrder() {
        setOrder((prevState) => (prevState?.filter((item) => item.id !== id)) )
     }
 
+    const placeOrder = () => {
+        setOrder([])
+        setTip(0)
+    }
+
   return {
     order,
     tip,
     setTip,
     addItem,
-    removeItem
+    removeItem,
+    placeOrder
   }
 }
